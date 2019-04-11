@@ -1,0 +1,52 @@
+.pageContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .scheduleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+
+    > div {
+      height: 3px;
+      background: #eee;
+      flex: 1;
+    }
+    h1 {
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+  }
+  .byDateContainer {
+    width: 90%;
+    padding: 0 5%;
+  }
+  .byRoundContainer {
+    width: 90%;
+    padding: 0 5%;
+
+    .seriesHeader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2em 0 1em;
+
+      img {
+        width: 3em;
+      }
+      > h4 {
+        color: blue;
+        margin: 0 3em;
+      }
+    }
+  }
+}

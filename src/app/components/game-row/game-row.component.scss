@@ -1,0 +1,77 @@
+.rowContainer {
+  border-top: solid 1px #eee;
+  border-bottom: solid 1px #eee;
+  padding: .5em 0;
+
+  a {
+    color: #137CD1;
+  }
+  .seriesInfoWrapper {
+    color: #666666;
+  }
+  .gameInfoWrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .at {
+      margin: 0 .5em;
+    }
+    .teamWrapper {
+      display: flex;
+      align-items: center;
+
+      .teamImg {
+        width: 1.25em;
+        margin-right: .25em;
+      }
+    }
+    .statusWrapper {
+      display: flex;
+      align-items: center;
+      margin: 0 1.5em;
+
+      .network {
+        width: 2em;
+      }
+      .gameState {
+        text-transform: uppercase;
+        margin-right: 1em;
+      }
+    }
+    .linksWrapper {
+      a {
+        color: #aaa;
+
+        span {
+          display: none;
+          margin-left: .25em;
+        }
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    .gameInfoWrapper {
+
+      .pitchingWrapper {
+        display: flex;
+        flex: 1;
+
+        > div {
+          margin-right: .5em;
+        }
+        > div:last-child {
+          margin-right: 0;
+        }
+      }
+      .linksWrapper {
+        a {
+  
+          span {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}

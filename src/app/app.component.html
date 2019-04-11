@@ -1,20 +1,36 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="pageContainer">
+  <!-- <div class="bracketContainer">
+    <app-bracket [data]="bySeriesArr"></app-bracket>
+  </div> -->
+  <div class="scheduleContainer">
+    <div class="header">
+      <div></div>
+      <h1>Schedule</h1>
+      <div></div>
+    </div>
+    <mat-button-toggle-group name="type" [value]="scheduleType" (change)="toggleType($event)">
+      <mat-button-toggle value="date">By Date</mat-button-toggle>
+      <mat-button-toggle value="round">By Round</mat-button-toggle>
+    </mat-button-toggle-group>
+    <div class="byDateContainer" *ngIf="scheduleType === 'date'">
+      <div class="dateContainer" *ngFor="let date of byDateArr;">
+        <h2>{{date.dateLabel}}</h2>
+        <app-game-row [game]="game" *ngFor="let game of date.games"></app-game-row>
+      </div>
+    </div>
+    <div class="byRoundContainer" *ngIf="scheduleType === 'round'">
+      <div class="roundContainer" *ngFor="let round of bySeriesArr;">
+        <h2>{{round.name}}</h2>
+        <div class="seriesWrapper" *ngFor="let series of round.series">
+          <div class="seriesHeader">
+            <img [src]="'assets/teams/' + series.games[series.games.length - 1].teams.away.team.name.split(' ')[series.games[series.games.length - 1].teams.away.team.name.split(' ').length - 1] + '.svg'" />
+            <h4>{{series.games[series.games.length - 1].seriesStatus.result}}</h4>
+            <img [src]="'assets/teams/' + series.games[series.games.length - 1].teams.home.team.name.split(' ')[series.games[series.games.length - 1].teams.home.team.name.split(' ').length - 1] + '.svg'" />
+          </div>
+          <app-game-row [game]="game" *ngFor="let game of series.games"></app-game-row>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 

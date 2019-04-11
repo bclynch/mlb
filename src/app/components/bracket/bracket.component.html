@@ -1,0 +1,11 @@
+<div class="bracketContainer">
+  <div class="left">
+    <div class="column" *ngFor="let round of alArray;">
+      <a class="series" *ngFor="let series of round.series" [ngClass]="series.series ? 'seriesMatchup' : ''">
+        <img *ngIf="series.games" [src]="'assets/teams/' + series.games[series.games.length - 1].teams.away.team.name.split(' ')[series.games[series.games.length - 1].teams.away.team.name.split(' ').length - 1] + '.svg'"/>
+        <div *ngIf="series.games">{{series.games[series.games.length - 1].seriesStatus.result}}</div>
+        <img *ngIf="series.games" [src]="'assets/teams/' + series.games[series.games.length - 1].teams.home.team.name.split(' ')[series.games[series.games.length - 1].teams.home.team.name.split(' ').length - 1] + '.svg'"/>
+      </a>
+    </div>
+  </div>
+</div>

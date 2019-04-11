@@ -1,0 +1,64 @@
+<div class="rowContainer">
+  <div class="seriesInfoWrapper">
+    <div>{{game.seriesStatus.shortDescription}} - {{game.seriesStatus.result}}</div>
+  </div>
+  <div class="gameInfoWrapper">
+    <div class="teamWrapper">
+        <img class="teamImg" [src]="'assets/teams/' + game.teams.away.team.name.split(' ')[game.teams.away.team.name.split(' ').length - 1] + '.svg'" />
+      <div>{{game.teams.away.team.name.split(' ')[game.teams.away.team.name.split(' ').length - 1]}} {{game.teams.away.score}}</div>
+    </div>
+    <div class="at">@</div>
+    <div class="teamWrapper">
+      <img class="teamImg" [src]="'assets/teams/' + game.teams.home.team.name.split(' ')[game.teams.home.team.name.split(' ').length - 1] + '.svg'" />
+      <div>{{game.teams.home.team.name.split(' ')[game.teams.home.team.name.split(' ').length - 1]}} {{game.teams.home.score}}</div>
+    </div>
+    <div class="statusWrapper">
+      <a 
+        [href]="'https://www.mlb.com/gameday/' + game.gamePk" 
+        target="_blank" 
+        rel="nofollow"
+        class="gameState"
+      >{{game.status.detailedState}}</a>
+      <img [src]="'assets/networks/' + tv + '.svg'" class="network" />
+    </div>
+    <div class="pitchingWrapper">
+      <div>W: 
+        <a 
+          [href]="'https://www.mlb.com/player/' + game.decisions.winner.nameSlug" 
+          target="_blank" 
+          rel="nofollow"
+        >{{game.decisions.winner.initLastName}}</a>
+      </div>
+      <div>L: 
+        <a 
+          [href]="'https://www.mlb.com/player/' + game.decisions.loser.nameSlug" 
+          target="_blank" 
+          rel="nofollow"
+        >{{game.decisions.loser.initLastName}}</a>
+      </div>
+      <div *ngIf="game.decisions.save">S: 
+        <a 
+          [href]="'https://www.mlb.com/player/' + game.decisions.save.nameSlug" 
+          target="_blank" 
+          rel="nofollow"
+        >{{game.decisions.save.initLastName}}</a>
+      </div>
+    </div>
+    <div class="linksWrapper">
+      <a 
+        [href]="'https://www.mlb.com/gameday/' + game.gamePk + '/final/wrap'" 
+        target="_blank" 
+        rel="nofollow"
+      >
+        <button mat-button><mat-icon>dvr</mat-icon> <span>Wrap</span></button>
+      </a>
+      <a 
+        [href]="'https://www.mlb.com/gameday/' + game.gamePk + '/final/video'" 
+        target="_blank" 
+        rel="nofollow"
+      >
+        <button mat-button><mat-icon>videocam</mat-icon> <span>Video</span></button>
+      </a>
+    </div>
+  </div>
+</div>
